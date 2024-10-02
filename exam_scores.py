@@ -1,6 +1,5 @@
 import numpy as np
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow import keras
 from keras import optimizers
 
 data = np.array([[1.4, 20.], [1.8, 30.], [2.1, 37.], [2.2, 45.],
@@ -9,8 +8,8 @@ data = np.array([[1.4, 20.], [1.8, 30.], [2.1, 37.], [2.2, 45.],
 
 [X_train,Y_train] = data.transpose()
 
-model = Sequential()
-model.add(Dense(1, activation='linear', input_dim=1))
+model = keras.Sequential()
+model.add(keras.Dense(1, activation='linear', input_dim=1))
 SGD = optimizers.SGD(lr=0.03) #lr is the learning rate
 model.compile(loss='mean_squared_error',optimizer=SGD)
 
